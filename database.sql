@@ -74,3 +74,54 @@ CREATE TABLE order_history (
     FOREIGN KEY (customer_order_id) REFERENCES cust_order(customer_order_id),
     FOREIGN KEY (order_status_id) REFERENCES order_status(order_status_id)
 );
+-- Publisher
+CREATE TABLE publisher (
+    publisher_id INT PRIMARY KEY,
+    publisher_name VARCHAR(150)
+);
+
+-- Book Language
+CREATE TABLE book_language (
+    language_id INT PRIMARY KEY,
+    language VARCHAR(50)
+);
+
+-- Books
+CREATE TABLE books (
+    book_id INT PRIMARY KEY,
+    title VARCHAR(200),
+    genre VARCHAR(100),
+    publisher_id INT,
+    language_id INT,
+    price DECIMAL(10,2),
+    FOREIGN KEY (publisher_id) REFERENCES publisher(publisher_id),
+    FOREIGN KEY (language_id) REFERENCES book_language(language_id)
+);
+
+
+--  Author
+CREATE TABLE author (
+    author_id INT PRIMARY KEY,
+    author_name VARCHAR(150)
+);
+
+
+-- Book_Author
+CREATE TABLE book_author (
+    book_author_id INT PRIMARY KEY,
+    book_id INT,
+    author_id INT,
+    FOREIGN KEY (book_id) REFERENCES books(book_id),
+    FOREIGN KEY (author_id) REFERENCES author(author_id)
+);
+
+-- Order Line
+CREATE TABLE order_line (
+    order_line_id INT PRIMARY KEY,
+    customer_order_id INT,
+    book_id INT,
+    quantity INT,
+    FOREIGN KEY (customer_order_id) REFERENCES cust_order(customer_order_id),
+    FOREIGN KEY (book_id) REFERENCES books(book_id)
+);
+
