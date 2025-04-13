@@ -68,7 +68,7 @@ The project follows a **normalized relational schema** with multiple entity rela
 
 ## 🖼️ ERD (Entity-Relationship Diagram)
 
-<img src = "D:\PLP\Web-Dev\SQL\bookstore_database\bookstore_database\bookstoreschema-Page-1.jpg"/>
+<img src = "D:/PLP\Web-Dev/SQL/bookstore_database/bookstore_database/bookstoreschema-Page-1.jpg"/>
 
 
 ## Collaborators
